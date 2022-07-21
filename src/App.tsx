@@ -1,25 +1,20 @@
 import './App.scss';
-import React, { useContext } from 'react';
-import { HashRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import VideoGameList from './components/VideoGameList';
+import React from 'react';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import Games from './pages/Games';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/address">Adresses</Link>
-          <Link to="/click">Click</Link>
-        </nav>
-        <main>
-          <Routes>
-            <Route path="*" element={<Home />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/game" element={<VideoGameList />} />
-          </Routes>
-        </main>
+        <Navbar />
+        <Routes>
+          <Route path="*" element={<Games />} />
+          <Route path="/" element={<Games />} />
+        </Routes>
+        <Footer />
       </Router>
     </div>
   );
